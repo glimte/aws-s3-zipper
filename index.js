@@ -94,7 +94,7 @@ S3Zipper.prototype = {
         var bucketParams = {
             Bucket: this.awsConfig.bucket, /* required */
             Delimiter: "/",
-            Prefix: params.folderName + "/"
+            Prefix: params.folderName?params.folderName+"/":""
         };
 
         if (params.startKey)
@@ -179,12 +179,6 @@ S3Zipper.prototype = {
        , callback : function
     */
     , streamZipDataTo: function (params, callback) {
-        if (!params || !params.folderName) {
-            console.error('folderName required');
-            return null;
-        }
-
-
         var zip = new archiver.create('zip');
         if (params.pipe) zip.pipe(params.pipe);
 
