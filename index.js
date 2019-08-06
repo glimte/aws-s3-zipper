@@ -273,7 +273,7 @@ S3Zipper.prototype = {
         }
 
         var t = this;
-        params.tmpDir = params.tmpDir+"/"?params.tmpDir:""
+        params.tmpDir = params.tmpDir?params.tmpDir+"/":""
         params.zipFileName = params.tmpDir+'__' + Date.now() + '.zip';
 
         if (params.s3ZipFileName.indexOf('/') < 0)
@@ -336,7 +336,7 @@ S3Zipper.prototype = {
 
         var t = this;
         ///local file
-        params.tmpDir = params.tmpDir+"/"?params.tmpDir:""
+        params.tmpDir = params.tmpDir?params.tmpDir+"/":""
         params.zipFileName = params.tmpDir+'__' + Date.now() + '.zip';
 
         if (params.s3ZipFileName.indexOf('/') < 0)
